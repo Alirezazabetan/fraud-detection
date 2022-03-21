@@ -1,0 +1,16 @@
+version: '3.4'
+services:
+  fraud:
+    build:
+        dockerfile: docker/dev.Dockerfile
+        context: .        
+    container_name: server
+    ports:
+      - "9595:9595"
+    networks:
+      - backend
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    
+networks:
+  backend:
